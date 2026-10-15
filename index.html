@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palette Thief - PCD</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+</head>
+<body>
+  <!-- Animated Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid-overlay"></div>
+
+  <div class="app-container">
+    <!-- Header Kembali Seperti Awal -->
+    <header class="header">
+      <div class="brand">
+        <i class="fa-solid fa-palette logo-icon"></i>
+        <span>Color Palette Thief</span>
+      </div>
+      <p class="subtitle">Identifikasi Palet Warna Otomatis dari Gambar (UTS Pengolahan Citra Digital)</p>
+    </header>
+
+    <main class="main-content">
+      <!-- Upload Section -->
+      <section class="upload-section">
+        <div class="drop-zone" id="dropZone">
+          <div class="icon-box">
+            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+          </div>
+          <div class="upload-text">
+            <h3>Tarik & Lepas Gambar di sini atau <span>Cari File</span></h3>
+            <p>Mendukung format PNG, JPG, WEBP</p>
+          </div>
+          <input type="file" id="imageInput" accept="image/*">
+        </div>
+      </section>
+
+      <!-- Results Grid -->
+      <section class="results-section hidden" id="resultsSection">
+        <!-- Gambar Sumber -->
+        <div class="glass-card image-card">
+          <div class="card-header">
+            <h3><i class="fa-regular fa-image"></i> Gambar Terpilih</h3>
+          </div>
+          <div class="img-wrapper">
+            <img id="previewImage" alt="Preview Gambar" crossOrigin="anonymous">
+          </div>
+        </div>
+
+        <!-- Palette Analytics -->
+        <div class="analytics-col">
+          <!-- Dominant Color -->
+          <div class="glass-card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-crown"></i> Warna Dominan Utama</h3>
+            </div>
+            <div id="dominantColor" class="dominant-display"></div>
+          </div>
+
+          <!-- Color Palette Grid -->
+          <div class="glass-card">
+            <div class="card-header space-between">
+              <h3><i class="fa-solid fa-swatchbook"></i> Palet Warna Teridentifikasi</h3>
+              <div class="count-selector">
+                <label for="colorCount">Jumlah Warna:</label>
+                <select id="colorCount">
+                  <option value="5">5 Warna</option>
+                  <option value="8" selected>8 Warna</option>
+                  <option value="10">10 Warna</option>
+                </select>
+              </div>
+            </div>
+            <div id="paletteGrid" class="palette-grid"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"><i class="fa-solid fa-check-circle"></i> Kode HEX berhasil disalin!</div>
+  <script src="script.js"></script>
+</body>
+</html>
